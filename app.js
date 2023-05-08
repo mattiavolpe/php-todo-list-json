@@ -12,14 +12,11 @@ createApp({
   },
   methods: {
     insertTask() {
-      this.tasks.push({
-        task: this.newTask,
-        completed: false
-      });
       const payloadToSend = {
         task: this.newTask,
-        completed: false
+        completed: "false"
       }
+      this.tasks.push(payloadToSend);
       this.sendTask(payloadToSend, this.sendTaskUrl);
     },
     sendTask(payload, apiUrl) {
@@ -38,11 +35,15 @@ createApp({
         console.error(error.message);
       })
     },
-    updateTasks(index) {
-      if (this.tasks[index].completed === "true") {
-        this.tasks[index].completed = "false";
+    updateTasks(index, operation) {
+      if (operation === "completionToggle"){
+        if (this.tasks[index].completed === "true") {
+          this.tasks[index].completed = "false";
+        } else {
+          this.tasks[index].completed = "true";
+        }
       } else {
-        this.tasks[index].completed = "true";
+        this.tasks.splice(index, 1);
       }
       const payloadToSend = this.tasks;
       this.sendTask(payloadToSend, this.updateTaskUrl);

@@ -5,7 +5,7 @@
   $tasksArray = json_decode($tasksJsonString, true);
   array_push($tasksArray, [
     "task" => $newTask,
-    "completed" => false
+    "completed" => "false"
   ]);
   $updatedTasksJson = json_encode($tasksArray);
   file_put_contents("tasks.json", $updatedTasksJson);

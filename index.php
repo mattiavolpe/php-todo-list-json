@@ -49,8 +49,8 @@
           <h1 class="text-secondary text-center mb-5">Full-Stack Web Development To-Do List</h1>
           <ul class="list-unstyled text-dark rounded-3 bg-light">
             <li v-for="(task, index) in tasks" :class="task.completed === 'true' ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
-              <h5 @click="updateTasks(index)" class="mb-0">{{ task.task }}</h5>
-              <button class="btn btn-danger">
+              <h5 @click="updateTasks(index, 'completionToggle')" class="mb-0">{{ task.task }}</h5>
+              <button @click="updateTasks(index, 'removeTask')" class="btn btn-danger">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </li>
