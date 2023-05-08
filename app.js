@@ -16,6 +16,7 @@ createApp({
         task: this.newTask,
         completed: "false"
       }
+      this.newTask = "";
       this.tasks.push(payloadToSend);
       this.sendTask(payloadToSend, this.sendTaskUrl);
     },

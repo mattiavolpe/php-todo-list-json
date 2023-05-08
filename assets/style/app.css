@@ -6,6 +6,10 @@ h1 {
   font-size: 3rem;
 }
 
+li {
+  cursor: pointer;
+}
+
 li:not(:last-child) {
   border-bottom: 3px solid #001632;
 }
