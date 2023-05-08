@@ -31,6 +31,9 @@
     <!-- EXTERNAL BOOTSTRAP CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- EXTERNAL FONTAWESOME CSS CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
     <!-- EXTERNAL PERSONAL CSS -->
     <link rel="stylesheet" href="./assets/style/app.css">
     
@@ -44,13 +47,18 @@
       <div class="container">
         <div class="w-50 mx-auto py-5">
           <h1 class="text-secondary text-center mb-5">Full-Stack Web Development To-Do List</h1>
-          <ul class="list-unstyled">
-            <li v-for="task in tasks">{{ task.task }}</li>
+          <ul class="list-unstyled text-dark rounded-3 bg-light">
+            <li v-for="task in tasks" class="d-flex align-items-center justify-content-between p-3">
+              <h5 class="mb-0">{{ task.task }}</h5>
+              <button class="btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </li>
           </ul>
           <!-- /.list-unstyled -->
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
-            <button class="btn btn-outline-secondary" type="button" id="submit-button">Add Task</button>
+            <button class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
           </div>
           <!-- /.input-group -->
         </div>
@@ -60,6 +68,9 @@
     </div>
     <!-- /#app -->
     
+    <!-- EXTERNAL AXIOS JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <!-- EXTERNAL VUE JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js"></script>
     
