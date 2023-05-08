@@ -8,6 +8,7 @@ h1 {
 
 li {
   cursor: pointer;
+  color: #001632;
 }
 
 li:not(:last-child) {
@@ -16,4 +17,14 @@ li:not(:last-child) {
 
 li.completed > h5 {
   text-decoration: line-through;
+  text-decoration-color: #dc3545;
+}
+
+.input-group {
+  height: 50px;
+}
+
+input,
+input::placeholder {
+  color: #001632 !important;
 }

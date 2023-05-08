@@ -1,5 +1,4 @@
-<?php
-  /* 
+<!-- 
   Dobbiamo creare una web-app che permetta di leggere e scrivere una lista di Todo.
   Deve essere anche gestita la persistenza dei dati leggendoli da, e scrivendoli in un file JSON.
 
@@ -16,9 +15,7 @@
   Permettere di segnare un task come completato facendo click sul testo
   Permettere il toggle del task (completato/non completato)
   Abilitare l’eliminazione di un task
-
-  */
-?>
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,18 +43,18 @@
       
       <div class="container">
         <div class="w-50 mx-auto py-5">
-          <h1 class="text-secondary text-center mb-5">Full-Stack Web Development To-Do List</h1>
-          <ul class="list-unstyled text-dark rounded-3 bg-light">
+          <h1 class="text-warning text-center mb-5">Full-Stack Web Development To-Do List</h1>
+          <ul class="list-unstyled text-dark rounded-3 bg-light mb-4">
             <li v-for="(task, index) in tasks" :class="task.completed === 'true' ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
-              <h5 @click="updateTasks(index, 'completionToggle')" class="mb-0">{{ task.task }}</h5>
-              <button @click="updateTasks(index, 'removeTask')" class="btn btn-danger">
+              <h5 @click="updateTasksLocally(index, 'completionToggle')" class="mb-0">{{ task.task }}</h5>
+              <button @click="updateTasksLocally(index, 'removeTask')" class="btn btn-danger">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </li>
           </ul>
           <!-- /.list-unstyled -->
           <div class="input-group">
-            <input @keyup.enter="insertTask()" v-model="newTask" type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
+            <input @keyup.enter="insertTask()" v-model.trim="newTask" type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
             <button @click="insertTask()" class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
           </div>
           <!-- /.input-group -->
@@ -75,7 +72,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js"></script>
     
     <!-- EXTERNAL PERSONAL JS -->
-    <script src="./app.js"></script>
+    <script src="./assets/js/app.js"></script>
     
   </body>
   
