@@ -57,8 +57,8 @@
           </ul>
           <!-- /.list-unstyled -->
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
-            <button class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
+            <input @keyup.enter="insertTask()" v-model="newTask" type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
+            <button @click="insertTask()" class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
           </div>
           <!-- /.input-group -->
         </div>
