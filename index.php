@@ -45,9 +45,9 @@
         <div class="py-5">
           <h1 class="text-warning text-center mb-5">Full-Stack Web Development To-Do List</h1>
           <ul class="list-unstyled text-dark rounded-3 bg-light mb-4">
-            <li v-for="(task, index) in tasks" :class="task.completed === 'true' ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
-              <h5 @click="updateTasksLocally(index, 'completionToggle')" class="mb-0">{{ task.task }}</h5>
-              <button @click="updateTasksLocally(index, 'removeTask')" class="btn btn-danger">
+            <li v-for="(task, index) in tasks" :class="task.completed ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
+              <h5 @click="toggleState(index)" class="mb-0">{{ task.task }}</h5>
+              <button @click="deleteTask(index)" class="btn btn-danger">
                 <i class="fa-solid fa-trash"></i>
               </button>
             </li>
