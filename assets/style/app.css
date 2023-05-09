@@ -20,11 +20,15 @@ h5, i {
 
 .fa-chevron-up, .fa-chevron-down {
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
 }
 
 li:hover .fa-chevron-up, li:hover .fa-chevron-down {
   opacity: 1;
+}
+
+.fa-chevron-up:hover, .fa-chevron-down:hover {
+  transform: scale(1.3);
 }
 
 li.completed > h5 {

@@ -16,7 +16,11 @@ body {
 
     .fa-chevron-up, .fa-chevron-down {
       opacity: 0;
-      transition: opacity 0.3s;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .fa-chevron-up:hover, .fa-chevron-down:hover {
+      transform: scale(1.3);
     }
 
     &:hover .fa-chevron-up, &:hover .fa-chevron-down {
