@@ -42,7 +42,7 @@
     <div id="app">
       
       <div class="container">
-        <div class="w-50 mx-auto py-5">
+        <div class="py-5">
           <h1 class="text-warning text-center mb-5">Full-Stack Web Development To-Do List</h1>
           <ul class="list-unstyled text-dark rounded-3 bg-light mb-4">
             <li v-for="(task, index) in tasks" :class="task.completed === 'true' ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">

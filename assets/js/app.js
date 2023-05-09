@@ -32,7 +32,7 @@ createApp({
     updateTasks() {
       axios.post(
         this.updateTasksUrl,
-        this.tasks,
+        {"tasksArray": this.tasks},
         {
           headers: { 'Content-Type': 'multipart/form-data' }
         })

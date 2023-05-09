@@ -7,8 +7,11 @@ h1 {
 }
 
 li {
-  cursor: pointer;
   color: #001632;
+}
+
+li > * {
+  cursor: pointer;
 }
 
 li:not(:last-child) {
@@ -27,4 +30,11 @@ li.completed > h5 {
 input,
 input::placeholder {
   color: #001632 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .container > div {
+    width: 50%;
+    margin: auto;
+  }
 }
