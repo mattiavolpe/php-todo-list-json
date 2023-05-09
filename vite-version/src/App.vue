@@ -50,6 +50,21 @@ export default {
     },
 
     /**
+     * Sets the payload with data to move a task and, then, calls the API to update the remote tasks list
+    */
+    moveTask(index, direction) {
+      if ((index === 0 && direction === "up") || (index === this.tasks.length - 1 && direction === "down")) {
+        return;
+      }
+      const payload = {
+        "index": index,
+        "direction": direction,
+        "operation": "moveTask"
+      }
+      this.updateTasks(payload);
+    },
+
+    /**
      * Calls the API to update the remote tasks list by matching the JSON file content with the encoded tasks array
     */
     updateTasks(payload) {
@@ -83,25 +98,31 @@ export default {
 
 <template>
   <div class="container">
-    <div class="py-5">
-      <h1 class="text-warning text-center mb-5">Full-Stack Web Development To-Do List</h1>
-      <ul class="list-unstyled text-dark rounded-3 bg-light mb-4">
-        <li v-for="(task, index) in tasks" :class="task.completed ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
-          <h5 @click="toggleState(index)" class="mb-0">{{ task.task }}</h5>
-          <button @click="deleteTask(index)" class="btn btn-danger">
-            <font-awesome-icon icon="fa-solid fa-trash" />
-          </button>
-        </li>
-      </ul>
-      <!-- /.list-unstyled -->
-      <div class="input-group">
-        <input @keyup.enter="insertTask()" v-model.trim="newTask" type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
-        <button @click="insertTask()" class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
+        <div class="py-5">
+          <h1 class="text-warning text-center mb-5">Full-Stack Web Development To-Do List</h1>
+          <ul class="list-unstyled text-dark rounded-3 bg-light mb-4">
+            <li v-for="(task, index) in tasks" :class="task.completed ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
+              <h5 @click="toggleState(index)" class="mb-0">{{ task.task }}</h5>
+              <div class="d-flex">
+                <div class="d-flex flex-column justify-content-between align-items-center me-3">
+                  <font-awesome-icon @click="moveTask(index, 'up')" icon="fa-solid fa-chevron-up" />
+                  <font-awesome-icon @click="moveTask(index, 'down')" icon="fa-solid fa-chevron-down" />
+                </div>
+                <button @click="deleteTask(index)" class="btn btn-danger">
+                  <font-awesome-icon icon="fa-solid fa-trash" />
+                </button>
+              </div>
+            </li>
+          </ul>
+          <!-- /.list-unstyled -->
+          <div class="input-group">
+            <input @keyup.enter="insertTask()" v-model.trim="newTask" type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
+            <button @click="insertTask()" class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
+          </div>
+          <!-- /.input-group -->
+        </div>
       </div>
-      <!-- /.input-group -->
-    </div>
-  </div>
-  <!-- /.container -->
+      <!-- /.container -->
 </template>
 
 <style>

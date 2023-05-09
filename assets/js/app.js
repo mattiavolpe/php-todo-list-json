@@ -48,6 +48,21 @@ createApp({
     },
 
     /**
+     * Sets the payload with data to move a task and, then, calls the API to update the remote tasks list
+    */
+    moveTask(index, direction) {
+      if ((index === 0 && direction === "up") || (index === this.tasks.length - 1 && direction === "down")) {
+        return;
+      }
+      const payload = {
+        "index": index,
+        "direction": direction,
+        "operation": "moveTask"
+      }
+      this.updateTasks(payload);
+    },
+
+    /**
      * Calls the API to update the remote tasks list by matching the JSON file content with the encoded tasks array
     */
     updateTasks(payload) {
@@ -64,7 +79,7 @@ createApp({
       .catch(error => {
         console.error(error.message);
       })
-    },
+    }
   },
   mounted() {
     // Retrieves the tasks list stored in the remote JSON file

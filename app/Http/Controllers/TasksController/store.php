@@ -22,6 +22,17 @@
     array_splice($phpDecodedArray, $_POST["index"], 1);
   }
 
+  // Executes if the operation is "moveTask"
+  if ($_POST["operation"] === "moveTask") {
+    if ($_POST["direction"] === "up") {
+      $removedElement = array_splice($phpDecodedArray, $_POST["index"], 1);
+      $phpDecodedArray = array_merge(array_slice($phpDecodedArray, 0, $_POST["index"] - 1), $removedElement, array_slice($phpDecodedArray, $_POST["index"] - 1));
+    } else {
+      $removedElement = array_splice($phpDecodedArray, $_POST["index"], 1);
+      $phpDecodedArray = array_merge(array_slice($phpDecodedArray, 0, $_POST["index"] + 1), $removedElement, array_slice($phpDecodedArray, $_POST["index"] + 1));
+    }
+  }
+
   $encodedArray = json_encode($phpDecodedArray);
   file_put_contents($file, $encodedArray);
   header('Content-Type: application/json');

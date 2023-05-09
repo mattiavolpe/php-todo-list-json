@@ -47,9 +47,15 @@
           <ul class="list-unstyled text-dark rounded-3 bg-light mb-4">
             <li v-for="(task, index) in tasks" :class="task.completed ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
               <h5 @click="toggleState(index)" class="mb-0">{{ task.task }}</h5>
-              <button @click="deleteTask(index)" class="btn btn-danger">
-                <i class="fa-solid fa-trash"></i>
-              </button>
+              <div class="d-flex">
+                <div class="d-flex flex-column justify-content-between align-items-center me-3">
+                  <i @click="moveTask(index, 'up')" class="fa-solid fa-chevron-up"></i>
+                  <i @click="moveTask(index, 'down')" class="fa-solid fa-chevron-down"></i>
+                </div>
+                <button @click="deleteTask(index)" class="btn btn-danger">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </div>
             </li>
           </ul>
           <!-- /.list-unstyled -->
