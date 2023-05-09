@@ -10,8 +10,17 @@ body {
   li {
     color: #001632;
     
-    & > * {
+    h5, .fa-chevron-up, .fa-chevron-down {
       cursor: pointer;
+    }
+
+    .fa-chevron-up, .fa-chevron-down {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:hover .fa-chevron-up, &:hover .fa-chevron-down {
+      opacity: 1;
     }
 
   }

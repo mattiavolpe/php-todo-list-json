@@ -10,12 +10,21 @@ li {
   color: #001632;
 }
 
-li > * {
+li:not(:last-child) {
+  border-bottom: 3px solid #001632;
+}
+
+h5, i {
   cursor: pointer;
 }
 
-li:not(:last-child) {
-  border-bottom: 3px solid #001632;
+.fa-chevron-up, .fa-chevron-down {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+li:hover .fa-chevron-up, li:hover .fa-chevron-down {
+  opacity: 1;
 }
 
 li.completed > h5 {
