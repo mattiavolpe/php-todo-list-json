@@ -1,0 +1,45 @@
+@use "/node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+  background-color: #001632;
+
+  h1 {
+    font-size: 3rem;
+  }
+  
+  li {
+    color: #001632;
+    
+    & > * {
+      cursor: pointer;
+    }
+
+  }
+  
+  li:not(:last-child) {
+    border-bottom: 3px solid #001632;
+  }
+  
+  li.completed > h5 {
+    text-decoration: line-through;
+    text-decoration-color: #dc3545;
+  }
+  
+  .input-group {
+    height: 50px;
+    
+    input,
+    input::placeholder {
+      color: #001632 !important;
+    }
+
+  }
+  
+}
+
+@media screen and (min-width: 768px) {
+  .container > div {
+    width: 50%;
+    margin: auto;
+  }
+}
