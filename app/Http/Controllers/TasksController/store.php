@@ -5,7 +5,7 @@
 
   // Executes if the operation is "addTask"
   if ($_POST["operation"] === "addTask") {
-    array_push($phpDecodedArray,
+    array_unshift($phpDecodedArray,
     [
       "task" => $_POST["newTask"],
       "completed" => false
