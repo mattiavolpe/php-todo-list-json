@@ -44,6 +44,11 @@
       <div class="container">
         <div class="py-5">
           <h1 class="text-warning text-center mb-5">Full-Stack Web Development To-Do List</h1>
+          <div class="input-group mb-5">
+            <input @keyup.enter="insertTask()" v-model.trim="newTask" type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
+            <button @click="insertTask()" class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
+          </div>
+          <!-- /.input-group -->
           <ul class="list-unstyled text-dark rounded-3 bg-light mb-4">
             <li v-for="(task, index) in tasks" :class="task.completed ? 'completed' : ''" class="d-flex align-items-center justify-content-between p-3">
               <h5 @click="toggleState(index)" class="mb-0">{{ task.task }}</h5>
@@ -59,11 +64,6 @@
             </li>
           </ul>
           <!-- /.list-unstyled -->
-          <div class="input-group">
-            <input @keyup.enter="insertTask()" v-model.trim="newTask" type="text" class="form-control" placeholder="Insert a new task..." aria-label="Insert a new task..." aria-describedby="submit-button">
-            <button @click="insertTask()" class="btn btn-outline-warning" type="button" id="submit-button">Add Task</button>
-          </div>
-          <!-- /.input-group -->
         </div>
       </div>
       <!-- /.container -->
